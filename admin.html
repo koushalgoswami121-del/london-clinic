@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#edf4f2"><title>Clinic bookings | The London Clinic</title>
+<style>
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:#183f3b;background:#edf4f2}
+*{box-sizing:border-box}body{margin:0}.shell{width:min(1120px,92%);margin:44px auto}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:28px}.brand{font:30px Georgia,serif}.muted{color:#667d76;font-size:13px}.panel{background:#fff;border:1px solid #d9e6e0;border-radius:18px;padding:24px;box-shadow:0 12px 36px #173f3b0c}.login{max-width:420px;margin:10vh auto}.field{display:grid;gap:7px;margin:14px 0}.field label{font-size:12px;color:#587267;font-weight:700}.field input{width:100%;padding:13px;border:1px solid #d9e6e0;border-radius:9px;font:inherit}.btn{border:0;border-radius:999px;padding:12px 18px;background:#183f3b;color:white;font-weight:700;cursor:pointer}.btn.secondary{background:#eaf3ee;color:#183f3b}.btn:disabled{opacity:.5;cursor:wait}.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:18px 0}.toolbar select{padding:10px;border:1px solid #d9e6e0;border-radius:9px;background:white}.booking{border:1px solid #d9e6e0;border-radius:14px;padding:18px;margin:12px 0;display:grid;grid-template-columns:1fr auto;gap:16px}.booking h3{margin:0 0 8px;font:23px Georgia,serif}.meta{display:flex;flex-wrap:wrap;gap:8px 18px;color:#667d76;font-size:13px}.pill{display:inline-block;padding:5px 9px;border-radius:99px;background:#edf5ef;color:#416c58;font-size:11px;font-weight:700;text-transform:capitalize}.actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.actions select{padding:9px;border:1px solid #d9e6e0;border-radius:8px}.notice{padding:12px;border-radius:9px;background:#eaf3ec;color:#2e684d;font-size:13px;display:none}.error{background:#fff0ee;color:#9b352b}.empty{padding:35px;text-align:center;color:#667d76}@media(max-width:650px){.shell{margin:24px auto}.top{align-items:flex-start;flex-direction:column}.booking{grid-template-columns:1fr}.actions{justify-content:flex-start}.panel{padding:18px}}
+</style>
+</head>
+<body>
+<main class="shell">
+  <section id="loginView" class="panel login">
+    <div class="brand">The London Clinic</div><p class="muted">Staff booking dashboard</p>
+    <form id="loginForm">
+      <div class="field"><label for="loginEmail">Staff email</label><input id="loginEmail" type="email" autocomplete="username" required></div>
+      <div class="field"><label for="loginPassword">Password</label><input id="loginPassword" type="password" autocomplete="current-password" required></div>
+      <button class="btn" type="submit">Sign in</button>
+      <p id="loginError" class="muted" role="alert"></p>
+    </form>
+  </section>
+
+  <section id="dashboardView" hidden>
+    <div class="top"><div><div class="brand">Appointment requests</div><div class="muted">The London Clinic · Staff dashboard</div></div><button class="btn secondary" id="signOut">Sign out</button></div>
+    <div id="notice" class="notice" role="status"></div>
+    <div class="panel">
+      <div class="toolbar">
+        <strong id="count">Loading requests…</strong>
+        <label class="muted" for="statusFilter">Show</label>
+        <select id="statusFilter"><option value="all">All statuses</option><option value="pending">Pending</option><option value="confirmed">Confirmed</option><option value="declined">Declined</option><option value="contacted">Contacted</option></select>
+        <button class="btn secondary" id="refresh">Refresh</button>
+      </div>
+      <div id="bookings"><div class="empty">Loading appointment requests…</div></div>
+    </div>
+  </section>
+</main>
+<script type="module" src="./admin.js"></script>
+</body></html>

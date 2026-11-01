@@ -1,0 +1,5 @@
+node_modules/
+functions/node_modules/
+service-account.json
+functions/.env.*
+.firebase/

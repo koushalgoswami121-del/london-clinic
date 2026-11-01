@@ -1,0 +1,1112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#edf4f2">
+<title>The London Clinic | Gentle dentistry, thoughtfully delivered</title>
+<style>
+:root {
+  color-scheme: light;
+  --site-primary: #c7e2dc;
+  --site-secondary: #183f3b;
+  --site-background: #edf4f2;
+  --site-on-primary: #173d39;
+  --site-on-secondary: #f7fbf8;
+  --site-on-background: #183f3b;
+  --site-font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --site-font-heading: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --site-heading-scale: 1;
+  --site-spacing-scale: 1;
+  --site-radius-scale: 1;
+  --site-decoration-opacity: 1;
+  --ink: #183f3b;
+  --muted: #667d76;
+  --line: #d9e6e0;
+  --paper: #ffffff;
+  --mist: #f5f8f5;
+  --sage: #dcebe4;
+  --accent: #8db5a5;
+  --gold: #b9986c;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: var(--site-font-body); background: var(--site-background); color: var(--ink); }
+#app { min-height: 100vh; width: 100%; border-radius: 0; background-color: var(--site-background); color: var(--site-on-background); overflow: hidden; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; }
+.wrap { width: min(1180px, 88%); margin: 0 auto; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border: 0; border-radius: calc(999px * var(--site-radius-scale)); padding: calc(15px * var(--site-spacing-scale)) calc(23px * var(--site-spacing-scale)); font-size: 12px; font-weight: 700; cursor: pointer; transition: transform .2s, background .2s; }
+.btn:hover { transform: translateY(-2px); }
+.btn-dark { background: var(--site-secondary); color: var(--site-on-secondary); }
+.btn-light { background: #fff; color: #173d39; }
+.btn-ghost { background: transparent; border: 1px solid #ffffff9c; color: white; }
+.eyebrow { color: #668e7d; text-transform: uppercase; letter-spacing: .17em; font-size: 10px; font-weight: 800; }
+.nav { position: absolute; inset: 0 0 auto; z-index: 10; color: white; }
+.navbar { min-height: 82px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #ffffff38; }
+.brand { display: flex; align-items: center; gap: 11px; font: 22px var(--site-font-heading); letter-spacing: -.03em; }
+.brand-mark { display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid #ffffffb0; border-radius: 50%; font-size: 17px; }
+.navlinks { display: flex; align-items: center; gap: 27px; font-size: 11px; color: #ffffffdf; }
+.navlinks a:hover { color: white; }
+.nav-book { border: 1px solid #ffffff9e; border-radius: 99px; padding: 11px 16px; }
+.menu { display: none; width: 42px; height: 42px; border: 1px solid #ffffff9e; border-radius: 50%; color: white; background: transparent; font-size: 19px; }
+.hero { position: relative; isolation: isolate; min-height: 750px; display: flex; align-items: center; color: white; background: #214f49; overflow: hidden; }
+.hero-media { position: absolute; inset: 0; z-index: -3; overflow: hidden; background: linear-gradient(120deg,#173d39 0%,#47776c 52%,#b8cec0 100%); }
+.hero-media video, .hero-media img { position: absolute; width: 100%; height: 100%; inset: 0; object-fit: cover; }
+.hero-media video { display: none; }
+.hero-media img { opacity: .72; }
+.hero-shade { position: absolute; z-index: -2; inset: 0; background: linear-gradient(90deg,rgba(13,42,39,.88) 0%,rgba(18,55,49,.70) 46%,rgba(17,54,47,.12) 100%),linear-gradient(0deg,rgba(10,37,34,.22),transparent 55%); }
+.hero-orbit { position: absolute; z-index: -1; right: 9%; top: 19%; width: 410px; height: 410px; border: 1px solid #ffffff40; border-radius: 50%; opacity: var(--site-decoration-opacity); }
+.hero-orbit:before,.hero-orbit:after { content: ""; position: absolute; border: 1px solid #ffffff3a; border-radius: 50%; inset: 35px; }
+.hero-orbit:after { inset: 78px; }
+.hero-content { max-width: 660px; padding-top: 105px; }
+.hero .eyebrow { color: #c7e5d9; }
+h1 { font: 400 clamp(52px,7vw,88px)/.97 var(--site-font-heading); letter-spacing: -.055em; margin: 20px 0 22px; }
+h1 em { color: #c6e2d5; }
+.hero-copy { max-width: 460px; color: #ffffffdc; font-size: 14px; line-height: 1.9; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.hero-note { margin-top: 25px; color: #ffffffb9; font-size: 10px; letter-spacing: .04em; }
+.hero-note b { color: #d5eee2; margin-right: 8px; }
+.trust { background: var(--site-secondary); color: white; }
+.trust-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; padding: 26px 0; }
+.trust-item { border-left: 1px solid #ffffff35; padding-left: 22px; }
+.trust-item:first-child { border: 0; padding-left: 0; }
+.trust-item strong { display: block; font: 22px var(--site-font-heading); font-weight: 400; }
+.trust-item small { display: block; margin-top: 5px; color: #ffffffa9; font-size: 9px; letter-spacing: .09em; }
+.section { padding: calc(96px * var(--site-spacing-scale)) 0; }
+.section-head { max-width: 630px; margin-bottom: 40px; }
+.section-head h2 { font: 400 calc(47px * var(--site-heading-scale))/1.04 var(--site-font-heading); letter-spacing: -.045em; margin: 13px 0 15px; }
+.section-head p { max-width: 530px; color: var(--muted); font-size: 13px; line-height: 1.8; margin: 0; }
+.needs-layout { display: grid; grid-template-columns: .78fr 1.22fr; gap: 8%; align-items: start; }
+.needs-intro { position: sticky; top: 28px; }
+.need-list { display: grid; gap: 13px; }
+.need-card { display: grid; grid-template-columns: 52px 1fr auto; gap: 17px; align-items: center; padding: 23px; background: var(--paper); border: 1px solid var(--line); border-radius: calc(18px * var(--site-radius-scale)); transition: .2s; }
+.need-card:hover { transform: translateX(4px); border-color: #9bbfaf; box-shadow: 0 14px 34px #173f3b10; }
+.need-icon { width: 47px; height: 47px; display: grid; place-items: center; border-radius: 15px; background: #eaf3ee; color: #477767; font-size: 20px; }
+.need-card h3 { font: 25px var(--site-font-heading); font-weight: 400; margin: 0 0 5px; }
+.need-card p { color: var(--muted); font-size: 11px; line-height: 1.6; margin: 0; }
+.need-card a { color: #497b69; font-size: 10px; font-weight: 800; white-space: nowrap; }
+.nervous { background: #e2eee7; }
+.nervous-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8%; align-items: center; }
+.nervous-visual { min-height: 440px; border-radius: calc(22px * var(--site-radius-scale)); overflow: hidden; position: relative; background: linear-gradient(140deg,#c8ddd0,#8cafa0); display: grid; place-items: center; }
+.nervous-visual svg { width: 84%; max-width: 430px; }
+.section-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.nervous-visual svg { display:none; }
+.dentist-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 28%; }
+.dentist-portrait svg { display:none; }
+
+.nervous-caption { position: absolute; bottom: 17px; left: 17px; background: #ffffffeb; color: #244c42; border-radius: 10px; padding: 11px 14px; font-size: 10px; }
+.nervous-copy h2 { font: 400 47px/1.04 var(--site-font-heading); letter-spacing: -.04em; margin: 14px 0; }
+.nervous-copy > p { color: #5b766b; font-size: 13px; line-height: 1.8; }
+.care-points { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 15px; margin-top: 27px; }
+.care-point { display: flex; gap: 10px; color: #365c50; font-size: 11px; line-height: 1.5; }
+.tick { flex: 0 0 21px; height: 21px; display: grid; place-items: center; border-radius: 50%; background: white; color: #4e8b76; }
+.price-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 15px; }
+.price-card { background: var(--paper); border: 1px solid var(--line); border-radius: calc(17px * var(--site-radius-scale)); padding: 25px; }
+.price-card.featured { background: var(--site-secondary); color: white; border-color: var(--site-secondary); }
+.price-card .tag { color: #729985; font-size: 9px; text-transform: uppercase; letter-spacing: .14em; font-weight: 800; }
+.price-card.featured .tag { color: #c1dfd0; }
+.price-card h3 { font: 24px var(--site-font-heading); font-weight: 400; margin: 13px 0 7px; }
+.price-card p { min-height: 38px; color: var(--muted); font-size: 11px; line-height: 1.65; }
+.price-card.featured p { color: #ffffffb9; }
+.price-value { font: 32px var(--site-font-heading); margin: 22px 0 5px; }
+.price-value small { font: 10px var(--site-font-body); color: var(--muted); }
+.price-card.featured .price-value small { color: #ffffffa9; }
+.price-card ul { list-style: none; padding: 13px 0 0; margin: 14px 0 0; border-top: 1px solid var(--line); }
+.price-card.featured ul { border-color: #ffffff36; }
+.price-card li { padding: 8px 0; color: var(--muted); font-size: 10px; }
+.price-card.featured li { color: #ffffffd1; }
+.price-card li:before { content: "✓"; color: #70a58e; margin-right: 8px; }
+.price-note { margin-top: 17px; color: var(--muted); font-size: 10px; line-height: 1.7; }
+.dentist { background: #f4f7f3; }
+.dentist-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 9%; align-items: center; }
+.dentist-portrait { min-height: 500px; border-radius: calc(20px * var(--site-radius-scale)); background: linear-gradient(145deg,#d8e8df,#a7c5b8); display: grid; place-items: center; overflow: hidden; position: relative; }
+.dentist-portrait svg { width: 100%; height: 100%; position: absolute; inset: 0; }
+.photo-note { position: absolute; bottom: 16px; left: 16px; background: #ffffffeb; color: #244c42; border-radius: 9px; padding: 10px 13px; font-size: 10px; }
+.dentist-copy h2 { font: 400 48px/1.04 var(--site-font-heading); letter-spacing: -.04em; margin: 14px 0 18px; }
+.dentist-copy p { color: var(--muted); font-size: 13px; line-height: 1.85; }
+.credentials { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 27px; }
+.credentials span { background: #e3eee7; color: #466b5d; border-radius: 99px; padding: 9px 12px; font-size: 9px; }
+.quiz-section { background: #fff; }
+.quiz-layout { display: grid; grid-template-columns: .75fr 1.25fr; gap: 8%; align-items: center; }
+.quiz-intro h2 { font: 400 47px/1.05 var(--site-font-heading); margin: 14px 0; letter-spacing: -.04em; }
+.quiz-intro p { color: var(--muted); font-size: 13px; line-height: 1.8; }
+.quiz-panel { padding: 30px; border: 1px solid var(--line); border-radius: calc(20px * var(--site-radius-scale)); box-shadow: 0 18px 50px #1c493b0b; background: white; }
+.quiz-meta { display: flex; justify-content: space-between; color: var(--muted); font-size: 10px; margin-bottom: 14px; }
+.progress { height: 4px; background: #e9efea; border-radius: 9px; overflow: hidden; margin-bottom: 25px; }
+.progress span { display: block; height: 100%; width: 33%; background: #6d9a87; transition: width .2s; }
+.quiz-panel h3 { font: 27px var(--site-font-heading); font-weight: 400; margin: 0 0 7px; }
+.quiz-hint { color: var(--muted); font-size: 11px; margin: 0 0 18px; }
+.options { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.option { background: #fbfcfa; border: 1px solid var(--line); border-radius: 11px; padding: 14px; text-align: left; cursor: pointer; color: var(--ink); }
+.option:hover,.option.selected { border-color: #76a48f; background: #edf5ef; }
+.option strong { display: block; font-size: 11px; margin-bottom: 4px; }
+.option small { color: var(--muted); font-size: 9px; line-height: 1.5; }
+.quiz-controls { display: flex; justify-content: space-between; align-items: center; margin-top: 19px; }
+.quiz-controls button:disabled { opacity: .4; cursor: not-allowed; }
+.quiz-result { display: none; margin-top: 18px; background: #eaf3ec; padding: 18px; border-radius: 12px; }
+.quiz-result strong { font: 22px var(--site-font-heading); }
+.quiz-result p { color: #557267; font-size: 11px; line-height: 1.7; }
+.reviews-booking { background: #e5eee7; }
+.review-book { display: grid; grid-template-columns: .82fr 1.18fr; gap: 8%; align-items: start; }
+.review-stack { display: grid; gap: 12px; }
+.review { background: white; border-radius: 15px; padding: 22px; }
+.stars { color: var(--gold); letter-spacing: 3px; font-size: 12px; }
+.review blockquote { font: 21px/1.35 var(--site-font-heading); margin: 13px 0; }
+.review small,.review-note { color: var(--muted); font-size: 9px; line-height: 1.6; }
+.booking-card { background: white; border-radius: calc(19px * var(--site-radius-scale)); padding: 30px; box-shadow: 0 16px 40px #234a3b0d; }
+.booking-card h3 { font: 31px var(--site-font-heading); font-weight: 400; margin: 0 0 7px; }
+.booking-card > p { color: var(--muted); font-size: 11px; margin: 0 0 21px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+.field { display: flex; flex-direction: column; gap: 7px; }
+.field.full { grid-column: 1/-1; }
+.field label { color: #587267; font-size: 9px; font-weight: 750; }
+.field input,.field select,.field textarea { width: 100%; border: 1px solid #dfe8e1; border-radius: 9px; background: #fbfcfa; color: #183f3b; padding: 12px; outline: none; font-size: 11px; }
+.field input:focus,.field select:focus,.field textarea:focus { border-color: #77a18d; box-shadow: 0 0 0 3px #77a18d20; }
+.field textarea { min-height: 68px; resize: vertical; }
+.privacy { color: var(--muted); font-size: 9px; line-height: 1.6; margin: 13px 0 15px; }
+.success { display: none; margin-top: 12px; border-radius: 9px; background: #e8f4ea; color: #2e684d; padding: 12px; font-size: 10px; line-height: 1.6; }
+.faqs { max-width: 850px; }
+details { border-bottom: 1px solid var(--line); padding: 19px 0; }
+summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 18px; font: 21px var(--site-font-heading); }
+summary::-webkit-details-marker { display: none; }
+summary:after { content: "+"; color: #6b9684; font: 18px var(--site-font-body); }
+details[open] summary:after { content: "−"; }
+details p { color: var(--muted); font-size: 11px; line-height: 1.8; max-width: 700px; }
+.footer { background: var(--site-secondary); color: white; padding: 60px 0 25px; }
+.footer-grid { display: grid; grid-template-columns: 1.3fr .8fr .8fr; gap: 50px; padding-bottom: 38px; }
+.footer h3 { font: 28px var(--site-font-heading); font-weight: 400; margin: 0 0 12px; }
+.footer h4 { color: #c3ded0; text-transform: uppercase; letter-spacing: .15em; font-size: 9px; margin: 0 0 14px; }
+.footer p,.footer a { color: #ffffffb9; font-size: 10px; line-height: 1.9; }
+.footer-bottom { border-top: 1px solid #ffffff30; padding-top: 18px; display: flex; justify-content: space-between; color: #ffffff80; font-size: 9px; }
+.mobile-book { display: none; }
+@media(max-width:850px) { .trust-grid { grid-template-columns: repeat(2,1fr); } .trust-item:nth-child(3) { border: 0; padding-left: 0; } .needs-layout,.nervous-grid,.dentist-grid,.quiz-layout,.review-book { grid-template-columns: 1fr; } .needs-intro { position: static; } .nervous-visual { min-height: 330px; } .dentist-portrait { min-height: 390px; } .quiz-layout,.review-book { gap: 28px; } }
+@media(max-width:560px) { .wrap { width: 88%; } .navbar { min-height: 70px; } .navlinks { display: none; position: absolute; top: 70px; left: 0; right: 0; background: #183f3b; padding: 20px 6%; flex-direction: column; align-items: stretch; gap: 17px; } .navlinks.open { display: flex; } .nav-book { text-align: center; } .menu { display: block; } .hero { min-height: 700px; align-items: flex-end; padding-bottom: 66px; } .hero-content { padding-top: 125px; } h1 { font-size: 56px; } .hero-shade { background: linear-gradient(0deg,rgba(13,43,40,.93),rgba(20,59,53,.48) 76%,rgba(19,54,49,.2)); } .hero-orbit { width: 270px; height: 270px; right: -3%; top: 12%; } .trust-grid { gap: 19px 10px; padding: 22px 0; } .trust-item { padding-left: 13px; } .trust-item strong { font-size: 18px; } .section { padding: 72px 0; } .section-head h2,.nervous-copy h2,.dentist-copy h2,.quiz-intro h2 { font-size: 38px; } .need-card { grid-template-columns: 42px 1fr; padding: 17px; gap: 12px; } .need-icon { width: 40px; height: 40px; } .need-card a { grid-column: 2; } .care-points { grid-template-columns: 1fr; } .price-grid { grid-template-columns: 1fr; } .quiz-panel { padding: 21px 16px; } .options { grid-template-columns: 1fr; } .booking-card { padding: 23px 17px; } .form-grid { grid-template-columns: 1fr; } .field.full { grid-column: auto; } .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; } .footer-grid > div:first-child { grid-column: 1/-1; } .footer-bottom { flex-direction: column; gap: 8px; } .mobile-book { display: flex; position: fixed; z-index: 20; bottom: 12px; left: 12px; right: 12px; padding: 8px 8px 8px 17px; background: #183f3b; color: white; border-radius: 99px; align-items: center; justify-content: space-between; box-shadow: 0 8px 28px #102e2a45; font-size: 10px; } .mobile-book .btn { padding: 11px 16px; font-size: 10px; } body { padding-bottom: 70px; } }
+
+
+/* Responsive refinements: desktop, laptop and tablet */
+@media (min-width: 1200px) {
+  .wrap { width: min(1280px, calc(100% - 112px)); }
+  .hero { min-height: clamp(700px, 76vh, 860px); }
+  .hero-content { max-width: 700px; }
+  h1 { font-size: clamp(68px, 6.2vw, 96px); }
+  .section { padding-top: clamp(88px, 7vw, 112px); padding-bottom: clamp(88px, 7vw, 112px); }
+  .section-head h2,
+  .nervous-copy h2,
+  .dentist-copy h2,
+  .quiz-intro h2 { font-size: clamp(44px, 3.6vw, 54px); }
+  .need-card { padding: 26px 28px; }
+  .price-card { padding: 30px; }
+  .booking-card { padding: 36px; }
+}
+
+@media (min-width: 851px) and (max-width: 1199px) {
+  .wrap { width: min(1100px, calc(100% - 72px)); }
+  .navbar { min-height: 76px; }
+  .brand { font-size: 20px; }
+  .navlinks { gap: clamp(12px, 1.6vw, 20px); font-size: 10px; }
+  .nav-book { padding: 10px 13px; }
+  .hero { min-height: clamp(650px, 76vh, 760px); }
+  .hero-content { max-width: 590px; }
+  h1 { font-size: clamp(58px, 6.2vw, 76px); }
+  .hero-orbit { width: clamp(290px, 34vw, 380px); height: clamp(290px, 34vw, 380px); }
+  .section { padding: 82px 0; }
+  .section-head h2,
+  .nervous-copy h2,
+  .dentist-copy h2,
+  .quiz-intro h2 { font-size: clamp(39px, 4.1vw, 47px); }
+  .needs-layout { grid-template-columns: .82fr 1.18fr; gap: 5%; }
+  .nervous-grid, .dentist-grid { gap: 6%; }
+  .quiz-layout { grid-template-columns: .82fr 1.18fr; gap: 5%; }
+  .review-book { grid-template-columns: .9fr 1.1fr; gap: 5%; }
+  .need-card { grid-template-columns: 44px 1fr auto; gap: 12px; padding: 19px; }
+  .need-card h3 { font-size: 22px; }
+  .price-card { padding: 20px; }
+  .booking-card { padding: 25px; }
+  .footer-grid { gap: 32px; }
+}
+
+/* Tablet navigation and comfortable tablet spacing */
+@media (min-width: 561px) and (max-width: 850px) {
+  .wrap { width: calc(100% - 56px); }
+  .navbar { min-height: 72px; }
+  .brand { font-size: 19px; }
+  .menu { display: block; }
+  .navlinks {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: #183f3b;
+    padding: 22px 28px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 17px;
+  }
+  .navlinks.open { display: flex; }
+  .nav-book { text-align: center; }
+  .hero { min-height: 680px; }
+  .hero-content { max-width: 610px; }
+  h1 { font-size: clamp(58px, 8vw, 76px); }
+  .section { padding: 76px 0; }
+  .needs-layout, .nervous-grid, .dentist-grid, .quiz-layout, .review-book {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+  .needs-intro { position: static; }
+  .nervous-visual { min-height: 390px; }
+  .dentist-portrait { min-height: 440px; }
+  .price-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .price-card:last-child { grid-column: 1 / -1; }
+  .footer-grid { grid-template-columns: 1.2fr 1fr 1fr; gap: 22px; }
+}
+
+/* Prevent long content and controls from squeezing narrower screens */
+@media (max-width: 850px) {
+  .need-card, .price-card, .quiz-panel, .booking-card { min-width: 0; }
+  .hero-copy { max-width: 520px; }
+  .form-grid { min-width: 0; }
+  img { max-width: 100%; }
+}
+
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior: auto !important; transition: none !important; } }
+
+
+/* Readability polish requested */
+@media (min-width: 561px) {
+  .navlinks { font-size: 13px; gap: clamp(18px, 2vw, 30px); }
+  .brand { font-size: 25px; }
+  .nav-book { padding: 12px 18px; }
+}
+@media (max-width: 560px) {
+  .brand { font-size: 21px; }
+  .navlinks { font-size: 14px; }
+}
+.section-head p { font-size: 16px; line-height: 1.85; }
+.needs-intro .section-head p { max-width: 570px; }
+.need-card a { font-size: 13px; }
+.care-point { font-size: 14px; line-height: 1.65; }
+.care-point b { font-size: 15px; }
+.faqs details p { font-size: 15px; line-height: 1.85; }
+.option small { display: none; }
+.option strong { font-size: 14px; margin-bottom: 0; }
+.quiz-hint { font-size: 13px; line-height: 1.6; }
+@media (max-width: 850px) {
+  .section-head p { font-size: 15px; }
+  .care-point { font-size: 13px; }
+  .faqs details p { font-size: 14px; }
+}
+
+
+
+/* Layout pass 3 — fluid desktop and laptop composition */
+html, body { width: 100%; max-width: 100%; }
+body { overflow-x: clip; }
+#app { overflow: clip; }
+.wrap {
+  width: min(1320px, calc(100% - clamp(40px, 7vw, 120px)));
+}
+.section { padding-block: clamp(68px, 6.2vw, 104px); }
+.section-head { margin-bottom: clamp(28px, 3vw, 44px); }
+.section-head h2,
+.nervous-copy h2,
+.dentist-copy h2,
+.quiz-intro h2 {
+  font-size: clamp(38px, 3.7vw, 54px);
+  line-height: 1.06;
+}
+.section-head p,
+.nervous-copy > p,
+.dentist-copy p,
+.quiz-intro p {
+  font-size: clamp(14px, 1.05vw, 16px);
+  line-height: 1.85;
+}
+.need-card p,
+.price-card p,
+.price-card li,
+.review small,
+.review-note,
+.booking-card > p,
+.privacy,
+.footer p,
+.footer a {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.need-card a { font-size: 13px; }
+.care-point { font-size: 14px; line-height: 1.7; }
+.faqs details p { font-size: 15px; line-height: 1.85; }
+.hero { min-height: clamp(650px, 78svh, 850px); }
+.hero-content { width: min(100%, 690px); padding-top: clamp(90px, 9vh, 120px); }
+h1 { font-size: clamp(58px, 6vw, 92px); }
+.hero-copy { font-size: clamp(15px, 1.15vw, 17px); line-height: 1.85; }
+.hero-orbit { width: clamp(300px, 31vw, 440px); height: clamp(300px, 31vw, 440px); }
+.trust-grid { gap: clamp(16px, 2.2vw, 30px); }
+.trust-item strong { font-size: clamp(20px, 1.8vw, 25px); }
+.trust-item small { font-size: 11px; line-height: 1.5; }
+.need-card { min-width: 0; }
+.need-card h3 { font-size: clamp(22px, 2vw, 27px); }
+.price-card { min-width: 0; }
+.price-card h3 { font-size: clamp(22px, 1.9vw, 26px); }
+.nervous-visual { min-height: clamp(340px, 38vw, 500px); }
+.dentist-portrait { min-height: clamp(400px, 43vw, 560px); }
+.quiz-panel { min-width: 0; padding: clamp(22px, 2.5vw, 36px); }
+.quiz-panel h3 { font-size: clamp(24px, 2.2vw, 30px); }
+.option { min-width: 0; padding: clamp(13px, 1.4vw, 17px); }
+.booking-card { min-width: 0; }
+.footer-grid { grid-template-columns: minmax(0, 1.3fr) minmax(150px, .8fr) minmax(190px, .8fr); }
+
+/* Keep the full navigation on roomy screens; use a menu before it gets cramped */
+@media (min-width: 981px) {
+  .menu { display: none !important; }
+  .navlinks { display: flex !important; position: static; flex-direction: row; align-items: center; background: transparent; padding: 0; }
+}
+@media (min-width: 851px) and (max-width: 980px) {
+  .wrap { width: calc(100% - 56px); }
+  .navbar { min-height: 74px; }
+  .brand { font-size: 21px; }
+  .menu { display: block; }
+  .navlinks {
+    display: none;
+    position: absolute;
+    top: 74px;
+    left: 0;
+    right: 0;
+    background: #183f3b;
+    padding: 22px 28px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 17px;
+    font-size: 14px;
+  }
+  .navlinks.open { display: flex; }
+  .nav-book { text-align: center; }
+  .needs-layout { grid-template-columns: minmax(230px, .78fr) minmax(0, 1.22fr); gap: 34px; }
+  .nervous-grid, .dentist-grid { gap: 34px; }
+  .quiz-layout { grid-template-columns: minmax(230px, .75fr) minmax(0, 1.25fr); gap: 34px; }
+  .review-book { grid-template-columns: minmax(230px, .82fr) minmax(0, 1.18fr); gap: 34px; }
+  .need-card { grid-template-columns: 44px minmax(0, 1fr) auto; padding: 18px; gap: 12px; }
+  .need-card p { font-size: 12px; }
+  .need-card a { font-size: 12px; }
+  .price-card { padding: 20px; }
+  .booking-card { padding: 24px; }
+}
+@media (min-width: 1200px) {
+  .wrap { width: min(1320px, calc(100% - 112px)); }
+  .needs-layout { grid-template-columns: minmax(300px, .78fr) minmax(0, 1.22fr); gap: clamp(48px, 6vw, 92px); }
+  .nervous-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(48px, 6vw, 92px); }
+  .dentist-grid { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(48px, 6vw, 100px); }
+  .quiz-layout { grid-template-columns: minmax(280px, .75fr) minmax(0, 1.25fr); gap: clamp(48px, 6vw, 92px); }
+  .review-book { grid-template-columns: minmax(300px, .82fr) minmax(0, 1.18fr); gap: clamp(48px, 6vw, 92px); }
+}
+@media (max-width: 850px) {
+  .wrap { width: calc(100% - 44px); }
+  .hero { min-height: 690px; }
+  .hero-content { padding-top: 110px; }
+  .need-card { grid-template-columns: 42px minmax(0, 1fr); }
+  .need-card a { grid-column: 2; justify-self: start; }
+  .price-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .price-card:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .wrap { width: 88%; }
+  .price-grid { grid-template-columns: 1fr; }
+  .price-card:last-child { grid-column: auto; }
+  .hero { min-height: 820px; padding-bottom: 150px; }
+}
+
+
+
+/* V5: smoother transition, consistent action alignment and full-width FAQ controls */
+.hero {
+  position: relative;
+  isolation: isolate;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  left: -4%;
+  right: -4%;
+  bottom: -1px;
+  height: 54px;
+  pointer-events: none;
+  background: #f4f7f3;
+  border-radius: 50% 50% 0 0 / 85% 85% 0 0;
+}
+.hero > .wrap {
+  position: relative;
+  z-index: 2;
+}
+
+/* Dentist section remains visible; no entrance animation */ 
+.dentist,
+.dentist.reveal-pending,
+.dentist.is-visible {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* Keep every need-card action in the same right-hand column */
+.need-card {
+  grid-template-columns: 52px minmax(0, 1fr) 150px;
+}
+.need-card > a {
+  justify-self: end;
+  text-align: right;
+  white-space: nowrap;
+}
+@media (max-width: 850px) {
+  .need-card {
+    grid-template-columns: 42px minmax(0, 1fr) 132px;
+  }
+  .need-card > a {
+    grid-column: 3;
+    grid-row: 1;
+    align-self: center;
+    justify-self: end;
+  }
+}
+@media (max-width: 560px) {
+  .need-card {
+    grid-template-columns: 42px minmax(0, 1fr);
+  }
+  .need-card > a {
+    grid-column: 2;
+    grid-row: auto;
+    justify-self: start;
+    text-align: left;
+  }
+}
+
+/* Let FAQ rows span the content width so the plus sits at the far right */
+.faqs {
+  width: 100%;
+  max-width: none;
+}
+.faqs details {
+  width: 100%;
+}
+.faqs summary {
+  width: 100%;
+  align-items: center;
+  padding-right: 4px;
+}
+.faqs summary::after {
+  flex: 0 0 auto;
+  margin-left: auto;
+  font-size: 22px;
+}
+
+
+
+/* V8: restore a spacious hero on desktop without changing mobile height */
+@media (min-width: 851px) {
+  .hero {
+    min-height: clamp(780px, 86svh, 920px);
+  }
+  .hero-content {
+    padding-top: clamp(105px, 11vh, 140px);
+  }
+  .hero::after {
+    height: 30px;
+  }
+}
+@media (min-width: 561px) and (max-width: 850px) {
+  .hero {
+    min-height: 720px;
+  }
+  .hero::after {
+    height: 34px;
+  }
+}
+
+
+/* Final icon alignment: use vector strokes, not font glyph baselines */
+.need-icon {
+  display: grid;
+  place-items: center;
+  align-self: center;
+  justify-self: center;
+  width: 47px;
+  height: 47px;
+  padding: 0;
+  line-height: 0;
+}
+.need-icon svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.tick {
+  display: grid;
+  place-items: center;
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  line-height: 0;
+}
+.tick svg {
+  display: block;
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.testimonials { background: #f4f7f3; }
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.testimonial-card {
+  min-width: 0;
+  padding: 27px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 14px 34px #173f3b0b;
+}
+.testimonial-stars {
+  color: var(--gold);
+  letter-spacing: 3px;
+  font-size: 14px;
+}
+.testimonial-card blockquote {
+  min-height: 104px;
+  margin: 18px 0 24px;
+  color: var(--ink);
+  font: 22px/1.4 var(--site-font-heading);
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+.testimonial-avatar {
+  display: grid;
+  place-items: center;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #eaf3ee;
+  color: #477767;
+  font-weight: 700;
+}
+.testimonial-author strong,
+.testimonial-author small { display: block; }
+.testimonial-author strong { color: var(--ink); font-size: 12px; }
+.testimonial-author small { margin-top: 4px; color: var(--muted); font-size: 10px; line-height: 1.4; }
+.review-book { display: block; max-width: 900px; }
+@media (max-width: 850px) {
+  .testimonial-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .testimonial-card blockquote { min-height: 0; }
+}
+@media (max-width: 560px) {
+  .testimonial-grid { grid-template-columns: 1fr; }
+  .testimonial-card { padding: 22px; }
+  .testimonial-card blockquote { font-size: 20px; }
+}
+
+
+/* V10: hero review proof and redesigned first-visit conversion section */
+.hero-reviews {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+  padding: 11px 16px 11px 12px;
+  border: 1px solid #ffffff50;
+  border-radius: 14px;
+  background: #ffffff12;
+  backdrop-filter: blur(8px);
+  letter-spacing: 0;
+}
+.hero-reviews > b {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #fff;
+  color: #b58a48;
+  font-size: 18px;
+}
+.hero-reviews strong,
+.hero-reviews small { display: block; }
+.hero-reviews strong { color: #fff; font-size: 14px; letter-spacing: .01em; }
+.hero-reviews small { margin-top: 3px; color: #ffffffc9; font-size: 10px; letter-spacing: .02em; }
+.reviews-booking { background: #e5eee7; }
+.first-visit-layout {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: clamp(36px, 6vw, 88px);
+}
+.first-visit-copy { max-width: 480px; }
+.first-visit-copy h2 {
+  margin: 16px 0 20px;
+  color: var(--ink);
+  font: 400 clamp(42px, 4.5vw, 62px)/1.02 var(--site-font-heading);
+  letter-spacing: -.045em;
+}
+.first-visit-copy h2 em { color: #6d9784; font-weight: 400; }
+.first-visit-lead {
+  max-width: 430px;
+  color: #5f786e;
+  font-size: 16px;
+  line-height: 1.85;
+}
+.first-visit-points { display: grid; gap: 19px; margin: 30px 0; }
+.first-visit-points > div { display: flex; align-items: center; gap: 13px; }
+.first-visit-check {
+  display: grid;
+  place-items: center;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+  color: #548571;
+  font-size: 15px;
+  font-weight: 700;
+}
+.first-visit-points strong,
+.first-visit-points small { display: block; }
+.first-visit-points strong { color: var(--ink); font-size: 14px; }
+.first-visit-points small { margin-top: 4px; color: #6b8178; font-size: 12px; line-height: 1.5; }
+.first-visit-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #527568;
+  font-size: 12px;
+  font-weight: 650;
+}
+.first-visit-note span { color: #8ba997; font-size: 17px; }
+.booking-card {
+  width: 100%;
+  padding: clamp(25px, 3.2vw, 42px);
+  border: 1px solid #e4ece6;
+  border-radius: 22px;
+  box-shadow: 0 22px 60px #234a3b12;
+}
+.booking-eyebrow {
+  margin-bottom: 11px;
+  color: #729681;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+.booking-card h3 { font-size: clamp(28px, 2.7vw, 36px); }
+.booking-card > p { font-size: 13px; line-height: 1.7; }
+.field label { font-size: 11px; }
+.field input,.field select,.field textarea { font-size: 13px; padding: 14px; }
+.field label span { color: #8b9b94; font-weight: 400; }
+.privacy { font-size: 10px; }
+.testimonials { background: #f4f7f3; }
+.testimonial-card { display: flex; flex-direction: column; min-height: 270px; }
+.testimonial-card blockquote { flex: 1; min-height: 0; font-size: 21px; }
+@media (max-width: 850px) {
+  .first-visit-layout { grid-template-columns: 1fr; gap: 30px; }
+  .first-visit-copy { max-width: 650px; }
+  .first-visit-copy h2 { font-size: clamp(40px, 7vw, 54px); }
+  .first-visit-points { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; }
+  .first-visit-points > div { align-items: flex-start; }
+  .first-visit-points small { font-size: 11px; }
+}
+@media (max-width: 560px) {
+  .hero-reviews { margin-top: 20px; padding: 9px 12px 9px 9px; }
+  .hero-reviews strong { font-size: 13px; }
+  .hero-reviews small { font-size: 9px; }
+  .first-visit-points { grid-template-columns: 1fr; gap: 16px; }
+  .first-visit-copy h2 { font-size: 42px; }
+  .first-visit-lead { font-size: 14px; }
+  .booking-card { padding: 23px 18px; }
+  .testimonial-card { min-height: 0; }
+}
+
+
+/* FAQs remain expanded so visitors can scan answers without extra clicks */
+#faqs details { display: block; }
+#faqs details > p {
+  display: block;
+  width: calc(100% - 42px);
+  max-width: none;
+  margin: 16px 0 24px;
+  font-size: 16px;
+  line-height: 1.85;
+  color: #617b71;
+}
+#faqs summary { cursor: default; }
+#faqs summary::-webkit-details-marker { display: none; }
+#faqs details[open] { padding-bottom: 2px; }
+#faqs details[open] summary::after { content: "−"; }
+#faqs details:not([open]) summary::after { content: "+"; }
+
+
+/* Patient portrait photos and Google review source mark */
+.testimonial-avatar {
+  display: block;
+  object-fit: cover;
+  object-position: center 35%;
+  flex: 0 0 52px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid #edf3ee;
+  background: #eaf3ee;
+}
+.testimonial-author { gap: 13px; }
+.testimonial-author strong { font-size: 13px; }
+.google-g {
+  display: grid;
+  place-items: center;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  padding: 6px;
+  border-radius: 50%;
+  background: #fff;
+}
+.google-g svg { display: block; width: 27px; height: 27px; }
+
+
+/* Mobile spacing, floating contact action and scroll reveal refinements */
+@media (max-width: 560px) {
+  .dentist.section {
+    padding-bottom: 132px;
+  }
+  .dentist-copy .btn {
+    margin-top: 18px;
+    margin-bottom: 0;
+  }
+  .mobile-book {
+    display: none !important;
+  }
+  .mobile-chat {
+    display: grid;
+    place-items: center;
+    position: fixed;
+    z-index: 30;
+    right: 20px;
+    bottom: 22px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    color: #fff;
+    background: #183f3b;
+    box-shadow: 0 8px 26px #102e2a45;
+    border: 1px solid #ffffff40;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .mobile-chat:active {
+    transform: scale(.94);
+  }
+  .mobile-chat svg {
+    width: 27px;
+    height: 27px;
+  }
+  body {
+    padding-bottom: 0 !important;
+  }
+}
+@media (min-width: 561px) {
+  .mobile-chat { display: none; }
+}
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s ease, transform .7s cubic-bezier(.2,.65,.3,1);
+  will-change: opacity, transform;
+}
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+
+@media (max-width: 560px) {
+  .footer-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 28px !important;
+  }
+  .footer-grid > div:first-child {
+    grid-column: auto !important;
+  }
+  .footer-grid > div {
+    min-width: 0;
+  }
+  .footer p,
+  .footer a {
+    overflow-wrap: anywhere;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .footer h4 {
+    font-size: 10px;
+    margin-bottom: 10px;
+  }
+  .footer-bottom {
+    align-items: flex-start;
+  }
+}
+
+
+/* Native date and time pickers in the appointment form */
+.booking-card input[type="date"],
+.booking-card input[type="time"],
+.booking-card input[type="datetime-local"] {
+  width: 100%;
+  min-height: 54px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fbfcfa;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  color-scheme: light;
+}
+.booking-card input[type="date"]:focus,
+.booking-card input[type="time"]:focus,
+.booking-card input[type="datetime-local"]:focus {
+  outline: 2px solid #8db5a5;
+  outline-offset: 2px;
+}
+
+
+/* Clear placeholder and breathing room for the combined date/time picker */
+.datetime-picker {
+  position: relative;
+  width: 100%;
+  margin-bottom: 12px;
+}
+.datetime-picker input[type="datetime-local"] {
+  display: block;
+  width: 100%;
+  min-height: 62px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fbfcfa;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  color-scheme: light;
+}
+.datetime-picker input[type="datetime-local"]:invalid:not(:focus):not(:valid) {
+  color: transparent;
+}
+.datetime-placeholder {
+  position: absolute;
+  z-index: 1;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #858585;
+  font-size: 14px;
+  pointer-events: none;
+}
+.datetime-picker:focus-within .datetime-placeholder,
+.datetime-picker.has-value .datetime-placeholder {
+  display: none;
+}
+.datetime-picker:focus-within input,
+.datetime-picker input:focus {
+  outline: 2px solid #8db5a5;
+  outline-offset: 2px;
+}
+.booking-card .form-grid {
+  row-gap: 18px;
+}
+.booking-card button[type="submit"] {
+  margin-top: 8px;
+}
+
+
+.booking-error { display:none; margin-top:12px; border-radius:9px; background:#fff0ee; color:#9b352b; padding:12px; font-size:10px; line-height:1.6; }
+.booking-card button[type="submit"]:disabled { opacity:.65; cursor:wait; transform:none; }
+
+</style>
+</head>
+<body>
+<div id="app">
+<header class="nav"><div class="wrap navbar">
+ <a class="brand" href="#home"><span class="brand-mark">✳</span><span>The London Clinic</span></a>
+ <nav class="navlinks" id="navlinks" aria-label="Main navigation"><a href="#care">Your care</a><a href="#treatments">Treatments</a><a href="#dentist">Our dentist</a><a href="#testimonials">Reviews</a><a href="#faqs">FAQs</a><a class="nav-book" href="#booking">Book a visit ↗</a></nav>
+ <button class="menu" id="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+</div></header>
+<main>
+<section class="hero" id="home">
+ <div class="hero-media" aria-hidden="true"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=2000&q=88" alt="Bright, modern dental treatment room" loading="eager"/><video id="heroVideo" muted loop playsinline poster=""><source src="" type="video/mp4"></video></div>
+ <div class="hero-shade"></div><div class="hero-orbit"></div>
+ <div class="wrap"><div class="hero-content"><div class="eyebrow">Private dentistry · London</div><h1>A safer way<br>to care for<br><em>your smile.</em></h1><p class="hero-copy">A dental experience shaped around you. We listen first, explain every step and help you feel comfortable making the choices that are right for you.</p><div class="hero-actions"><a class="btn btn-light" href="#booking">Request an appointment ↗</a><a class="btn btn-ghost" href="#care">Find the right care</a></div>
+</section>
+<section class="section dentist" id="dentist"><div class="wrap dentist-grid"><div class="dentist-portrait"><img class="dentist-photo" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1000&q=85" alt="Dentist in a white coat" loading="lazy"><svg viewBox="0 0 480 560" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="portraitBg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#dcebe1"/><stop offset="1" stop-color="#9dbdaf"/></linearGradient></defs><rect width="480" height="560" fill="url(#portraitBg)"/><circle cx="240" cy="165" r="91" fill="#e8cbb8"/><path d="M146 170c-8-88 49-127 112-121 74 7 101 58 76 132-24-40-59-56-91-59-31 24-61 39-97 48Z" fill="#405b52"/><path d="M100 560c8-181 58-279 140-279s132 98 140 279Z" fill="#f7faf5"/><path d="m193 286 47 72 47-72" stroke="#bdd4c8" stroke-width="7"/><path d="M202 195c13 10 27 10 40 0m20 0c13 10 27 10 40 0" stroke="#8f6355" stroke-width="4" stroke-linecap="round"/><path d="M224 238c12 11 25 11 37 0" stroke="#a66f62" stroke-width="4" stroke-linecap="round"/></svg><div class="photo-note">Dr Amelia Hart · Lead Dentist</div></div><div class="dentist-copy"><div class="eyebrow">Meet your dentist</div><h2>Expert care,<br>with a human touch.</h2><p>“Every patient deserves to feel heard and comfortable. I take time to understand your concerns, explain your options and make decisions together.”</p><p><b>Dr Amelia Hart</b><br>Lead Dentist · General & Cosmetic Dentistry</p><div class="credentials"><span>BDS</span><span>MFDS</span><span>12+ years’ experience</span></div><a class="btn btn-dark" href="#booking">Request a consultation ↗</a></div></div></section>
+
+<section class="section" id="care"><div class="wrap needs-layout"><div class="needs-intro"><div class="eyebrow">Start with what matters</div><div class="section-head"><h2>What would help you today?</h2><p>Choose the reason you’re here. We’ll help you find a comfortable next step, without pressure.</p></div><a class="btn btn-dark" href="#booking">Talk to our team ↗</a></div><div class="need-list">
+ <article class="need-card"><div class="need-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div><div><h3>Tooth pain</h3><p>For discomfort, swelling or a dental problem that needs prompt attention.</p></div><a href="#booking" data-concern="Tooth pain / emergency care">Get help ↗</a></article>
+ <article class="need-card"><div class="need-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.8 14.2 9.8 21.2 12 14.2 14.2 12 21.2 9.8 14.2 2.8 12 9.8 9.8 12 2.8Z"/></svg></div><div><h3>A better smile</h3><p>Explore smile improvements and ask about a complimentary preview, if offered.</p></div><a href="#booking" data-concern="Smile makeover / consultation">Explore options ↗</a></article>
+ <article class="need-card"><div class="need-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5" stroke-dasharray="1.6 2.2"/></svg></div><div><h3>A check-up</h3><p>A thorough oral health assessment, with X-rays only when clinically appropriate.</p></div><a href="#booking" data-concern="Routine check-up">Book a check-up ↗</a></article>
+</div></div></section>
+<section class="section nervous"><div class="wrap nervous-grid"><div class="nervous-visual" aria-label="Welcoming dental clinic interior"><img class="section-photo" src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1100&q=85" alt="A welcoming, light-filled dental clinic" loading="lazy"><svg viewBox="0 0 440 390" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="220" cy="190" r="158" stroke="#ffffff80"/><circle cx="220" cy="190" r="124" stroke="#ffffff70"/><path d="M220 78c-54 0-91 39-91 94 0 44 24 81 44 116 13 23 21 42 34 42 16 0 17-35 29-35s13 35 29 35c13 0 22-20 34-43 19-36 42-72 42-115 0-55-37-94-91-94Z" fill="#f9fcf7" stroke="#528778" stroke-width="3"/><path d="M171 180c13 10 26 10 39 0m20 0c13 10 26 10 39 0" stroke="#82a99b" stroke-width="5" stroke-linecap="round"/><path d="M192 226c17 15 39 15 56 0" stroke="#82a99b" stroke-width="4" stroke-linecap="round"/><path d="M87 91l16 16m0-16-16 16m240 178 16 16m0-16-16 16" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/></svg><div class="nervous-caption">Your comfort comes first</div></div><div class="nervous-copy"><div class="eyebrow">For nervous patients</div><h2>You’re in control.<br>We’ll go at your pace.</h2><p>If dental visits make you anxious, tell us. We’ll listen, explain what to expect and agree how you can pause at any time.</p><div class="care-points"><div class="care-point"><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span><span><b>Numbing gel</b><br>Comfort options before treatment</span></div><div class="care-point"><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span><span><b>Gentle treatment</b><br>One step at a time</span></div><div class="care-point"><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span><span><b>Raise-hand signal</b><br>We stop whenever you need</span></div><div class="care-point"><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span><span><b>No judgement</b><br>A fresh start, whenever you’re ready</span></div></div></div></div></section>
+<section class="section" id="treatments"><div class="wrap"><div class="section-head"><div class="eyebrow">Straightforward from day one</div><h2>Clear treatment choices.<br>Clear costs.</h2><p>We’ll explain what’s recommended and provide a written estimate before you decide to proceed.</p></div><div class="price-grid">
+ <article class="price-card"><div class="tag">Start here</div><h3>New patient check-up</h3><p>A complete first assessment and time to discuss your concerns.</p><div class="price-value">£85 <small>from</small></div><ul><li>Oral health assessment</li><li>X-rays if clinically needed</li><li>Personal care plan</li></ul></article>
+ <article class="price-card featured"><div class="tag">When you need us</div><h3>Emergency appointment</h3><p>Prompt assessment for dental pain or an unexpected problem.</p><div class="price-value">£125 <small>from</small></div><ul><li>Focused examination</li><li>Options explained clearly</li><li>Next-step plan</li></ul></article>
+ <article class="price-card"><div class="tag">Your smile, your choice</div><h3>Smile consultation</h3><p>A relaxed conversation about the changes you’d like to make.</p><div class="price-value">£95 <small>from</small></div><ul><li>Smile goals discussion</li><li>Suitable treatment options</li><li>Written estimate</li></ul></article>
+ </div><p class="price-note">Treatment fees depend on your clinical needs. Your dentist will explain the recommended options and provide a written estimate before any treatment begins. Any finance is subject to provider terms and eligibility.</p></div></section>
+
+<section class="section quiz-section" id="quiz"><div class="wrap quiz-layout"><div class="quiz-intro"><div class="eyebrow">A quick place to begin</div><h2>Not sure what you need?</h2><p>Answer three quick questions for a suggested next step. This is general guidance, not a diagnosis.</p></div><div class="quiz-panel"><div class="quiz-meta"><span id="stepLabel">QUESTION 1 OF 3</span><span>About 30 seconds</span></div><div class="progress"><span id="progressBar"></span></div><h3 id="question">What brings you here today?</h3><p class="quiz-hint" id="hint">Choose the closest answer.</p><div class="options" id="options"></div><div class="quiz-controls"><button class="btn" id="back" disabled style="background:#edf2ed;color:#41645a">Back</button><button class="btn btn-dark" id="next" disabled>Continue →</button></div><div class="quiz-result" id="result"><strong id="resultTitle"></strong><p id="resultCopy"></p><a class="btn btn-dark" id="resultLink" href="#booking">Request this appointment ↗</a></div></div></div></section>
+<section class="section testimonials" id="testimonials">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Patient experiences</div>
+      <h2>A little more at ease.<br>A lot more understood.</h2>
+      <p>Thoughtful care, clear explanations and a team that takes the time to listen.</p>
+    </div>
+    <div class="testimonial-grid">
+      <article class="testimonial-card">
+        <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+        <blockquote>“I was quite nervous before my appointment, but everyone was so welcoming. Everything was explained clearly and I never felt rushed.”</blockquote>
+        <div class="testimonial-author"><img class="testimonial-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&h=160&q=85" alt="Patient portrait" loading="lazy"><span><strong>Amelia R.</strong></span></div>
+      </article>
+      <article class="testimonial-card">
+        <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+        <blockquote>“The dentist took time to talk me through each step. I felt comfortable, listened to and completely involved in the decisions.”</blockquote>
+        <div class="testimonial-author"><img class="testimonial-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&h=160&q=85" alt="Patient portrait" loading="lazy"><span><strong>James T.</strong></span></div>
+      </article>
+      <article class="testimonial-card">
+        <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+        <blockquote>“From booking to the appointment, the team were kind and professional. It was a genuinely reassuring experience.”</blockquote>
+        <div class="testimonial-author"><img class="testimonial-avatar" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=160&h=160&q=85" alt="Patient portrait" loading="lazy"><span><strong>Sophie M.</strong></span></div>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="section reviews-booking" id="booking">
+  <div class="wrap first-visit-layout">
+    <div class="first-visit-copy">
+      <div class="eyebrow">Your first visit starts here</div>
+      <h2>Let’s make your<br><em>first visit easy.</em></h2>
+      <p class="first-visit-lead">A good first visit starts with a conversation. Tell us a little about what you need and our friendly team will help you take the next step.</p>
+      <div class="first-visit-points">
+        <div><span class="first-visit-check">✓</span><span><strong>We’ll listen first</strong><small>Your concerns and questions matter.</small></span></div>
+        <div><span class="first-visit-check">✓</span><span><strong>Clear next steps</strong><small>We’ll explain your options before you decide.</small></span></div>
+        <div><span class="first-visit-check">✓</span><span><strong>At your pace</strong><small>There’s no pressure to rush into treatment.</small></span></div>
+      </div>
+      <div class="first-visit-note"><span aria-hidden="true">✳</span> New to the clinic? You’re very welcome here.</div>
+    </div>
+    <form class="booking-card" id="bookingForm">
+      <div class="booking-eyebrow">A simple first step</div>
+      <h3>Request an appointment</h3>
+      
+      <div class="form-grid">
+        <div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" placeholder="Full name" required></div>
+        <div class="field"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Best contact number" required></div>
+        <div class="field full"><label for="email">Email address <span>(optional, for confirmation)</span></label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com"></div>
+        <div class="field"><label for="concern">What can we help with?</label><select id="concern" name="concern" required><option value="">Choose a reason</option><option>Tooth pain / emergency care</option><option>Smile makeover / consultation</option><option>Routine check-up</option><option>Nervous patient support</option><option>Other</option></select></div>
+        
+        <div class="field full"><label for="appointmentDateTime">Preferred date &amp; time</label><div class="datetime-picker"><span class="datetime-placeholder" id="datetimePlaceholder">Book your slot</span><input id="appointmentDateTime" name="appointmentDateTime" type="datetime-local" required aria-label="Book your slot"></div></div>
+      </div>
+      
+      <button class="btn btn-dark" type="submit" style="width:100%">Send appointment request ↗</button>
+      <div class="success" id="success" role="status" aria-live="polite">Your request has been sent to the clinic. The team will contact you to confirm the appointment.</div>
+      <div class="booking-error" id="bookingError" role="alert" aria-live="assertive"></div>
+    </form>
+  </div>
+</section>
+<section class="section" id="faqs"><div class="wrap"><div class="section-head"><div class="eyebrow">Before you come in</div><h2>Questions, answered<br>without the jargon.</h2></div><div class="faqs"><details><summary>Will dental treatment hurt?</summary><p>Your dentist will discuss suitable ways to keep you comfortable, including local anaesthetic when appropriate. Tell the team what worries you and agree a pause signal before treatment.</p></details><details><summary>Can I spread the cost?</summary><p>Ask the clinic about current payment plans, finance eligibility and insurance arrangements. Provider terms, interest, eligibility and total payable should be explained before you agree.</p></details><details><summary>Can I change or cancel my appointment?</summary><p>If your plans change, please contact the clinic as early as possible so we can help arrange another suitable time.</p></details><details><summary>What if I haven’t seen a dentist in years?</summary><p>You can start again at any time. You’ll be treated with respect, not judgement, and the team can help you make a plan that feels manageable.</p></details></div></div></section>
+</main>
+<footer class="footer"><div class="wrap"><div class="footer-grid"><div><h3>The London Clinic</h3><p>Thoughtful dentistry, shaped around you.<br>A calmer kind of dental care.</p></div><div><h4>Visit</h4><p>Harley Street, Marylebone<br>London W1G<br><a href="#booking">Get directions ↗</a></p></div><div><h4>Contact & hours</h4><p>020 7946 0821<br>hello@thelondonclinic.co.uk<br>Mon–Fri · 8:30am–6:00pm</p></div></div><div class="footer-bottom"><span>© <span id="year"></span> The London Clinic</span><span>Privacy · Accessibility · Terms</span></div></div></footer>
+<a class="mobile-chat" href="#booking" aria-label="Message the clinic and request a visit" title="Message the clinic">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H6l-3 2v-5.5A7.5 7.5 0 1 1 20 11.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 11.5h8M8 14.5h5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+</a>
+</div>
+<script>
+const menu = document.getElementById('menu');
+const nav = document.getElementById('navlinks');
+menu.addEventListener('click', () => { const open = nav.classList.toggle('open'); menu.setAttribute('aria-expanded', String(open)); menu.textContent = open ? '×' : '☰'; });
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { nav.classList.remove('open'); menu.setAttribute('aria-expanded', 'false'); menu.textContent = '☰'; }));
+document.querySelectorAll('[data-concern]').forEach(a => a.addEventListener('click', () => { document.getElementById('concern').value = a.dataset.concern; }));
+const questions = [
+ {q:'What brings you here today?',h:'Choose the closest answer.',o:[['Pain or discomfort','A toothache, swelling or a broken tooth.'],['A smile refresh','I want to explore cosmetic options.'],['A routine check-up','I want to look after my oral health.'],['I feel nervous','I need a gentle first conversation.']]},
+ {q:'How soon would you like help?',h:'This helps us suggest a sensible next step.',o:[['As soon as possible','It is affecting me right now.'],['In the next few weeks','I would like to plan a visit.'],['I am just exploring','I want to understand my options.']]},
+ {q:'What matters most to you?',h:'There is no wrong answer.',o:[['A calm conversation','I want to talk before an examination.'],['Clear costs','I want to understand the price first.'],['Gentle, step-by-step care','I want to know I can pause.'],['A clear recommendation','Help me understand what to do next.']]}
+];
+let index = 0; const answers = []; let chosen = null;
+const question = document.getElementById('question'), hint = document.getElementById('hint'), options = document.getElementById('options');
+const back = document.getElementById('back'), next = document.getElementById('next'), result = document.getElementById('result');
+function render() { const q = questions[index]; question.textContent=q.q; hint.textContent=q.h; document.getElementById('stepLabel').textContent=`QUESTION ${index+1} OF 3`; document.getElementById('progressBar').style.width=`${(index+1)/3*100}%`; options.innerHTML=''; chosen=answers[index] ?? null; q.o.forEach((item,i)=>{const b=document.createElement('button');b.type='button';b.className='option'+(chosen===i?' selected':'');const strong=document.createElement('strong');strong.textContent=item[0];const small=document.createElement('small');small.textContent=item[1];b.append(strong,small);b.addEventListener('click',()=>{answers[index]=i;render();});options.appendChild(b);});back.disabled=index===0;next.disabled=chosen===null;next.textContent=index===2?'See my suggestion →':'Continue →';result.style.display='none';}
+back.addEventListener('click',()=>{if(index>0){index--;render();}});
+next.addEventListener('click',()=>{if(chosen===null)return;if(index<2){index++;render();}else showResult();});
+function showResult(){const a=answers[0];let title='A new-patient check-up',copy='A routine assessment is a useful place to begin. The dentist can understand your needs and talk through suitable options.',concern='Routine check-up';if(a===0){title='An urgent dental assessment';copy='Ask the clinic promptly about an urgent assessment. Facial swelling with fever, or difficulty breathing or swallowing, needs urgent medical attention.';concern='Tooth pain / emergency care';}else if(a===1){title='A smile consultation';copy='A smile consultation can help you discuss your goals, suitable options and costs before making decisions.';concern='Smile makeover / consultation';}else if(a===3){title='A gentle first conversation';copy='Let the team know you feel nervous. You can request a conversation first, agree a stop signal and take things one step at a time.';concern='Nervous patient support';}document.getElementById('resultTitle').textContent=title;document.getElementById('resultCopy').textContent=copy;document.getElementById('resultLink').onclick=()=>{document.getElementById('concern').value=concern;};result.style.display='block';next.disabled=true;next.textContent='Suggestion ready';}
+render();
+// Booking submission is handled by the Firebase module below.
+document.getElementById('year').textContent=new Date().getFullYear();
+
+const appointmentDateTime = document.getElementById('appointmentDateTime');
+if (appointmentDateTime) {
+  const now = new Date();
+  const localNow = new Date(now.getTime() - now.getTimezoneOffset() * 60000)
+    .toISOString().slice(0, 16);
+  appointmentDateTime.min = localNow;
+}
+
+const dateTimeWrap = document.querySelector('.datetime-picker');
+const dateTimeInput = document.getElementById('appointmentDateTime');
+if (dateTimeWrap && dateTimeInput) {
+  const syncDateTimePlaceholder = () => {
+    dateTimeWrap.classList.toggle('has-value', Boolean(dateTimeInput.value));
+  };
+  dateTimeInput.addEventListener('input', syncDateTimePlaceholder);
+  dateTimeInput.addEventListener('change', syncDateTimePlaceholder);
+  syncDateTimePlaceholder();
+}
+
+
+
+
+const revealTargets = document.querySelectorAll(
+  '.section:not(.hero), .trust-strip, .footer'
+);
+if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  revealTargets.forEach(el => el.classList.add('reveal-on-scroll'));
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -45px 0px' });
+  revealTargets.forEach(el => revealObserver.observe(el));
+}
+
+</script>
+
+<script type="module" src="./booking.js"></script>
+</body>
+</html>
